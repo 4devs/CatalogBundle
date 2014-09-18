@@ -1,0 +1,5 @@
+form:
+    group_item: 'Item'
+
+label:
+    catalog: "Сatalog"

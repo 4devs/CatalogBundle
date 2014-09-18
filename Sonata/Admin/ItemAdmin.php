@@ -13,7 +13,10 @@ class ItemAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('item', 'fdevs_catalog_item', ['label' => false]);
+        $formMapper
+            ->with('form.group_item')
+                ->add('item', 'fdevs_catalog_item', ['label' => false])
+            ->end();
     }
 
     /**
