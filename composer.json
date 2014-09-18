@@ -22,5 +22,9 @@
         "twig/extensions": "~1.0",
         "fdevs/page-bundle": "~1.0",
         "fdevs/tag-bundle": "~1.0"
-    }
+    },
+    "autoload": {
+        "psr-0": { "FDevs\\CatalogBundle": "" }
+    },
+    "target-dir": "FDevs/CatalogBundle"
 }
