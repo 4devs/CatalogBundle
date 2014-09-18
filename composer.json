@@ -1,0 +1,26 @@
+{
+    "name": "fdevs/catalog-bundle",
+    "license": "MIT",
+    "type": "synfony-bundle",
+    "description": "Bundle for Catalog",
+    "homepage": "https://github.com/4devs/CatalogBundle",
+    "keywords": ["symfony", "catalog"],
+    "authors": [
+        {
+            "name": "Samusev Andrey",
+            "email": "andrey_simfi@list.ru",
+            "homepage": "http://andrey.4devs.io/"
+        },
+        {
+            "name": "4devs Community",
+            "homepage": "https://github.com/4devs/CatalogBundle/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "symfony/symfony": "~2.5",
+        "twig/extensions": "~1.0",
+        "fdevs/page-bundle": "~1.0",
+        "fdevs/tag-bundle": "~1.0"
+    }
+}

@@ -1,0 +1,5 @@
+<div class="row">
+    {%- for item in list -%}
+        {{ include(tpl_item, { 'item': item }) }}
+    {%- endfor -%}
+</div>

@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="f_devs_catalog.form.item.class">FDevs\CatalogBundle\Form\Type\ItemType</parameter>
+        <parameter key="f_devs_catalog.controller.default.class">FDevs\CatalogBundle\Controller\DefaultController</parameter>
+        <parameter key="f_devs_catalog.twig.catalog_extension.class">FDevs\CatalogBundle\Twig\Extension\CatalogExtension</parameter>
+        <parameter key="f_devs_catalog.service.catalog_manager.class">FDevs\CatalogBundle\Service\CatalogManager</parameter>
+    </parameters>
+
+    <services>
+        <service id="f_devs_catalog.form.item" class="%f_devs_catalog.form.item.class%">
+            <tag name="form.type" alias="fdevs_catalog_item"/>
+            <call method="setItemTypes">
+                <argument>%f_devs_catalog.item_types%</argument>
+            </call>
+            <call method="setDataClass">
+                <argument>%f_devs_catalog.data_class%</argument>
+            </call>
+        </service>
+
+        <service id="f_devs_catalog.twig.catalog_extension" class="%f_devs_catalog.twig.catalog_extension.class%">
+            <argument>%f_devs_catalog.template.item%</argument>
+            <argument>%f_devs_catalog.template.list%</argument>
+            <argument type="service" id="f_devs_catalog.service.catalog_manager"/>
+            <tag name="twig.extension"/>
+        </service>
+
+        <service id="f_devs_catalog.service.catalog_manager" class="%f_devs_catalog.service.catalog_manager.class%">
+            <argument type="service" id="f_devs_catalog.manager"/>
+            <argument>%f_devs_catalog.data_class%</argument>
+            <argument>%f_devs_catalog.item_types%</argument>
+        </service>
+
+        <service id="f_devs_catalog.controller.default" class="%f_devs_catalog.controller.default.class%">
+            <argument type="service" id="templating"/>
+            <argument type="service" id="f_devs_catalog.service.catalog_manager"/>
+            <argument>%f_devs_catalog.template.item%</argument>
+            <argument>%f_devs_catalog.template.list%</argument>
+        </service>
+    </services>
+
+</container>
