@@ -1,7 +1,7 @@
 {
     "name": "fdevs/catalog-bundle",
     "license": "MIT",
-    "type": "synfony-bundle",
+    "type": "symfony-bundle",
     "description": "Bundle for Catalog",
     "homepage": "https://github.com/4devs/CatalogBundle",
     "keywords": ["symfony", "catalog"],
