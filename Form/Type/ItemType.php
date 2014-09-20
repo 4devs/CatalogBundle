@@ -12,6 +12,8 @@ class ItemType extends AbstractType
     private $itemTypes = [];
     /** @var string */
     private $dataClass;
+    /** @var string */
+    private $tagClass = 'FDevs\TagBundle\Model\Tag';
 
     /**
      * {@inheritDoc}
@@ -19,10 +21,14 @@ class ItemType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('image', 'fdevs_image', ['filesystem' => 'catalog', 'validation_options' => ['max_file_size' => 1000]])
+            ->add(
+                'image',
+                'fdevs_image',
+                ['filesystem' => 'catalog', 'validation_options' => ['max_file_size' => 1000]]
+            )
             ->add('url', 'url', ['required' => false])
             ->add('type', 'choice', ['choices' => $options['item_types']])
-            ->add('tags', 'fdevs_catalog_model', ['multiple' => true, 'class' => 'FDevs\TagBundle\Model\Tag']);
+            ->add('tags', 'fdevs_catalog_model', ['multiple' => true, 'class' => $options['tag_class']]);
     }
 
     /**
@@ -31,15 +37,16 @@ class ItemType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver
-            ->setOptional(['item_types'])
+            ->setOptional(['item_types', 'tag_class'])
             ->setDefaults(
                 [
+                    'tag_class' => $this->tagClass,
                     'item_types' => $this->itemTypes,
                     'inherit_data' => true,
                     'data_class' => $this->dataClass
                 ]
             )
-            ->setAllowedTypes(['item_types' => 'array']);
+            ->setAllowedTypes(['item_types' => 'array', 'tag_class' => 'string']);
     }
 
     /**
@@ -64,6 +71,20 @@ class ItemType extends AbstractType
     public function setDataClass($dataClass)
     {
         $this->dataClass = $dataClass;
+
+        return $this;
+    }
+
+    /**
+     * @param string $tagClass
+     *
+     * @return $this
+     */
+    public function setTagClass($tagClass)
+    {
+        if ($tagClass) {
+            $this->tagClass = $tagClass;
+        }
 
         return $this;
     }

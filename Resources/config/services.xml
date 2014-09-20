@@ -20,6 +20,9 @@
             <call method="setDataClass">
                 <argument>%f_devs_catalog.data_class%</argument>
             </call>
+            <call method="setTagClass">
+                <argument on-invalid="null">%f_devs_tag.model_tag.class%</argument>
+            </call>
         </service>
 
         <service id="f_devs_catalog.twig.catalog_extension" class="%f_devs_catalog.twig.catalog_extension.class%">
