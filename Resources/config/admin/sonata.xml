@@ -8,7 +8,6 @@
         <parameter key="f_devs_catalog.admin.item.class">FDevs\CatalogBundle\Sonata\Admin\ItemAdmin</parameter>
         <parameter key="f_devs_catalog.admin.groupname">Catalog</parameter>
         <parameter key="f_devs_catalog.admin.label_catalogue">FDevsCatalogBundle</parameter>
-        <parameter key="f_devs_catalog.admin.item.model">FDevs\CatalogBundle\Model\Item</parameter>
         <parameter key="f_devs_catalog.admin.translation_domain">FDevsCatalogBundle</parameter>
     </parameters>
 
@@ -17,7 +16,7 @@
             <tag name="sonata.admin" label_catalogue="%f_devs_catalog.admin.label_catalogue%"
                  manager_type="doctrine_mongodb" group="%f_devs_catalog.admin.groupname%" label="item"/>
             <argument/>
-            <argument>%f_devs_catalog.admin.item.model%</argument>
+            <argument>%f_devs_catalog.data_class%</argument>
             <argument/>
             <call method="setTranslationDomain">
                 <argument>%f_devs_catalog.admin.translation_domain%</argument>
