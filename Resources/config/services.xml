@@ -36,6 +36,7 @@
             <argument type="service" id="f_devs_catalog.manager"/>
             <argument>%f_devs_catalog.data_class%</argument>
             <argument>%f_devs_catalog.item_types%</argument>
+            <argument>%f_devs_catalog.base_sort%</argument>
         </service>
 
         <service id="f_devs_catalog.controller.default" class="%f_devs_catalog.controller.default.class%">
