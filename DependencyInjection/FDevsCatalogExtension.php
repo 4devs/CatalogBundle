@@ -22,14 +22,15 @@ class FDevsCatalogExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $container->setParameter($this->getAlias() . '.backend_type_' . $config['db_driver'], true);
-        $container->setParameter($this->getAlias() . '.manager_name', null);
-        $container->setParameter($this->getAlias() . '.item_types', $config['item_types']);
-        $container->setParameter($this->getAlias() . '.data_class', $config['data_class']);
-        $container->setParameter($this->getAlias() . '.template.list', $config['template']['list']);
-        $container->setParameter($this->getAlias() . '.template.item', $config['template']['item']);
+        $container->setParameter($this->getAlias().'.base_sort', $config['base_sort']);
+        $container->setParameter($this->getAlias().'.backend_type_'.$config['db_driver'], true);
+        $container->setParameter($this->getAlias().'.manager_name', null);
+        $container->setParameter($this->getAlias().'.item_types', $config['item_types']);
+        $container->setParameter($this->getAlias().'.data_class', $config['data_class']);
+        $container->setParameter($this->getAlias().'.template.list', $config['template']['list']);
+        $container->setParameter($this->getAlias().'.template.item', $config['template']['item']);
 
-        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
 
         $loader->load(sprintf('%s.xml', $config['db_driver']));
