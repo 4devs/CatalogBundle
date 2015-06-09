@@ -98,7 +98,7 @@ in your template
         <div class="portfolio-caption">
             <h4>{{ item.title|t }}</h4>
 
-            <p class="text-muted">{{ item.metaDescription|t }}</p>
+            <p class="text-muted">{{ item.description|t }}</p>
         </div>
     </div>
 {% endspaceless %}
