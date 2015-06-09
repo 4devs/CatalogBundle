@@ -57,6 +57,7 @@ class Configuration implements ConfigurationInterface
                     ->end()
                 ->end()
                 ->scalarNode('data_class')->defaultValue('FDevs\CatalogBundle\Model\Item')->end()
+                ->scalarNode('item_form')->defaultValue('fdevs_catalog_item')->end()
             ->end();
 
         return $treeBuilder;

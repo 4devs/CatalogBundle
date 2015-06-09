@@ -10,7 +10,8 @@
         <field name="image" type="string"/>
         <field name="type" type="string"/>
         <field name="url" type="string"/>
-        <reference-many target-document="FDevs\TagBundle\Model\Tag" field="tags" simple="true"/>
+        <embed-many target-document="FDevs\Locale\Model\LocaleText" field="description"/>
+        <reference-many target-document="FDevs\Tag\Model\Tag" field="tags" simple="true"/>
 
     </document>
 
