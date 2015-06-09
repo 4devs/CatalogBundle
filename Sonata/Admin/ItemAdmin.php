@@ -8,6 +8,9 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class ItemAdmin extends Admin
 {
+    /** @var string */
+    private $typeItem = 'fdevs_catalog_item';
+
     /**
      * {@inheritdoc}
      */
@@ -15,7 +18,7 @@ class ItemAdmin extends Admin
     {
         $formMapper
             ->with('form.group_item')
-                ->add('item', 'fdevs_catalog_item', ['label' => false])
+            ->add('item', $this->typeItem, ['label' => false])
             ->end();
     }
 
@@ -27,8 +30,20 @@ class ItemAdmin extends Admin
         $list
             ->addIdentifier('id')
             ->add('type')
-            ->add('tags')
-        ;
+            ->add('tags');
     }
 
+    /**
+     * set type item
+     *
+     * @param string $typeItem
+     *
+     * @return self
+     */
+    public function setTypeItem($typeItem)
+    {
+        $this->typeItem = $typeItem;
+
+        return $this;
+    }
 }

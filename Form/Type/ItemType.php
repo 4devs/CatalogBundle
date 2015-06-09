@@ -4,16 +4,19 @@ namespace FDevs\CatalogBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class ItemType extends AbstractType
 {
     /** @var array */
     private $itemTypes = [];
+
     /** @var string */
     private $dataClass;
+
     /** @var string */
-    private $tagClass = 'FDevs\TagBundle\Model\Tag';
+    private $tagClass = 'FDevs\Tag\Model\Tag';
 
     /**
      * {@inheritDoc}
@@ -28,22 +31,25 @@ class ItemType extends AbstractType
             )
             ->add('url', 'url', ['required' => false])
             ->add('type', 'choice', ['choices' => $options['item_types']])
-            ->add('tags', 'fdevs_catalog_model', ['multiple' => true, 'class' => $options['tag_class']]);
+            ->add('tags', 'fdevs_catalog_model', ['multiple' => true, 'class' => $options['tag_class']])
+            ->add('description', 'trans_textarea', ['label' => 'form.description']);
     }
+
 
     /**
      * {@inheritDoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
+        parent::configureOptions($resolver);
         $resolver
-            ->setOptional(['item_types', 'tag_class'])
+            ->setDefined(['item_types', 'tag_class'])
             ->setDefaults(
                 [
-                    'tag_class' => $this->tagClass,
-                    'item_types' => $this->itemTypes,
+                    'tag_class'    => $this->tagClass,
+                    'item_types'   => $this->itemTypes,
                     'inherit_data' => true,
-                    'data_class' => $this->dataClass
+                    'data_class'   => $this->dataClass
                 ]
             )
             ->setAllowedTypes(['item_types' => 'array', 'tag_class' => 'string']);

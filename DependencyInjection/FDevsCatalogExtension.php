@@ -29,6 +29,7 @@ class FDevsCatalogExtension extends Extension
         $container->setParameter($this->getAlias().'.data_class', $config['data_class']);
         $container->setParameter($this->getAlias().'.template.list', $config['template']['list']);
         $container->setParameter($this->getAlias().'.template.item', $config['template']['item']);
+        $container->setParameter($this->getAlias().'.item_form', $config['item_form']);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');

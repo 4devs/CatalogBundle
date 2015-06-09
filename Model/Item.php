@@ -2,7 +2,11 @@
 
 namespace FDevs\CatalogBundle\Model;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FDevs\PageBundle\Model\Page;
+use FDevs\Tag\TagInterface;
+use FDevs\Locale\Model\LocaleText;
+use Doctrine\Common\Collections\Collection;
 
 class Item extends Page
 {
@@ -18,9 +22,9 @@ class Item extends Page
     protected $image;
 
     /**
-     * @var \FDevs\TagBundle\Model\Tag
+     * @var array|Collection|TagInterface[]
      */
-    protected $tags = array();
+    protected $tags = [];
 
     /**
      * @var string $type
@@ -32,11 +36,19 @@ class Item extends Page
      */
     protected $url;
 
+    /**
+     * @var array|Collection|LocaleText[]
+     */
+    protected $description;
+
+    /**
+     * {@inheritDoc}
+     */
     public function __construct()
     {
         parent::__construct();
         $this->createdAt = new \DateTime();
-        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->tags = new ArrayCollection();
     }
 
     /**
@@ -76,9 +88,9 @@ class Item extends Page
     /**
      * Add tag
      *
-     * @param \FDevs\TagBundle\Model\Tag $tag
+     * @param TagInterface $tag
      */
-    public function addTag(\FDevs\TagBundle\Model\Tag $tag)
+    public function addTag(TagInterface $tag)
     {
         $this->tags[] = $tag;
     }
@@ -86,9 +98,9 @@ class Item extends Page
     /**
      * Remove tag
      *
-     * @param \FDevs\TagBundle\Model\Tag $tag
+     * @param TagInterface $tag
      */
-    public function removeTag(\FDevs\TagBundle\Model\Tag $tag)
+    public function removeTag(TagInterface $tag)
     {
         $this->tags->removeElement($tag);
     }
@@ -96,7 +108,7 @@ class Item extends Page
     /**
      * Get tags
      *
-     * @return \Doctrine\Common\Collections\Collection $tags
+     * @return array|Collection|TagInterface $tags
      */
     public function getTags()
     {
@@ -150,4 +162,21 @@ class Item extends Page
     {
         return $this->url;
     }
+
+    /**
+     * @return array|Collection|\FDevs\Locale\Model\LocaleText[]
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param array|Collection|\FDevs\Locale\Model\LocaleText[] $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
 }
