@@ -10,14 +10,13 @@ use Doctrine\Common\Collections\Collection;
 
 class Item extends Page
 {
-
     /**
-     * @var \MongoId $id
+     * @var \MongoId
      */
     protected $id;
 
     /**
-     * @var string $image
+     * @var string
      */
     protected $image;
 
@@ -27,12 +26,12 @@ class Item extends Page
     protected $tags = [];
 
     /**
-     * @var string $type
+     * @var string
      */
     protected $type;
 
     /**
-     * @var string $url
+     * @var string
      */
     protected $url;
 
@@ -42,7 +41,7 @@ class Item extends Page
     protected $description;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function __construct()
     {
@@ -52,7 +51,7 @@ class Item extends Page
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return id $id
      */
@@ -62,7 +61,7 @@ class Item extends Page
     }
 
     /**
-     * Set image
+     * Set image.
      *
      * @param string $image
      *
@@ -76,7 +75,7 @@ class Item extends Page
     }
 
     /**
-     * Get image
+     * Get image.
      *
      * @return string $image
      */
@@ -86,7 +85,7 @@ class Item extends Page
     }
 
     /**
-     * Add tag
+     * Add tag.
      *
      * @param TagInterface $tag
      */
@@ -96,7 +95,7 @@ class Item extends Page
     }
 
     /**
-     * Remove tag
+     * Remove tag.
      *
      * @param TagInterface $tag
      */
@@ -106,7 +105,7 @@ class Item extends Page
     }
 
     /**
-     * Get tags
+     * Get tags.
      *
      * @return array|Collection|TagInterface $tags
      */
@@ -116,7 +115,7 @@ class Item extends Page
     }
 
     /**
-     * Set type
+     * Set type.
      *
      * @param string $type
      *
@@ -130,7 +129,7 @@ class Item extends Page
     }
 
     /**
-     * Get type
+     * Get type.
      *
      * @return string $type
      */
@@ -140,7 +139,7 @@ class Item extends Page
     }
 
     /**
-     * Set url
+     * Set url.
      *
      * @param string $url
      *
@@ -154,7 +153,7 @@ class Item extends Page
     }
 
     /**
-     * Get url
+     * Get url.
      *
      * @return string $url
      */
@@ -178,5 +177,4 @@ class Item extends Page
     {
         $this->description = $description;
     }
-
 }

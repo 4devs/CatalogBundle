@@ -16,7 +16,7 @@ class CatalogExtension extends \Twig_Extension
     private $manager;
 
     /**
-     * init
+     * init.
      *
      * @param string         $templateItem
      * @param string         $templateList
@@ -30,7 +30,7 @@ class CatalogExtension extends \Twig_Extension
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getName()
     {
@@ -38,7 +38,7 @@ class CatalogExtension extends \Twig_Extension
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getFunctions()
     {
@@ -93,5 +93,4 @@ class CatalogExtension extends \Twig_Extension
 
         return $options;
     }
-
 }

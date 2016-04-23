@@ -9,7 +9,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 class FDevsCatalogBundle extends Bundle
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function build(ContainerBuilder $container)
     {
@@ -23,7 +23,7 @@ class FDevsCatalogBundle extends Bundle
      */
     private function addRegisterMappingsPass(ContainerBuilder $container)
     {
-        $mappings = [realpath(__DIR__ . '/Resources/config/doctrine/model') => 'FDevs\CatalogBundle\Model'];
+        $mappings = [realpath(__DIR__.'/Resources/config/doctrine/model') => 'FDevs\CatalogBundle\Model'];
 
         if (class_exists('Doctrine\Bundle\MongoDBBundle\DependencyInjection\Compiler\DoctrineMongoDBMappingsPass')) {
             $container->addCompilerPass(
@@ -34,7 +34,5 @@ class FDevsCatalogBundle extends Bundle
                 )
             );
         }
-
     }
-
 }

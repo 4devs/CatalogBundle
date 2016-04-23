@@ -36,7 +36,7 @@ class CatalogManager
     }
 
     /**
-     * get list items by type
+     * get list items by type.
      *
      * @param string     $type
      * @param array|null $orderBy
@@ -53,11 +53,10 @@ class CatalogManager
         $orderBy = $orderBy ?: $this->baseOrder;
 
         return $this->getRepository()->findBy(['type' => $type], $orderBy, $limit, $offset);
-
     }
 
     /**
-     * get Item by Id
+     * get Item by Id.
      *
      * @param string $id
      *
@@ -71,7 +70,6 @@ class CatalogManager
         }
 
         return $item;
-
     }
 
     /**
@@ -81,5 +79,4 @@ class CatalogManager
     {
         return $this->managerRegistry->getManager()->getRepository($this->class);
     }
-
 }

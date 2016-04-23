@@ -34,7 +34,7 @@ class ItemAdmin extends Admin
     }
 
     /**
-     * set type item
+     * set type item.
      *
      * @param string $typeItem
      *

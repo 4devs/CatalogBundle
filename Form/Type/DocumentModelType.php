@@ -7,7 +7,7 @@ use Symfony\Component\Form\AbstractType;
 class DocumentModelType extends AbstractType
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getName()
     {
@@ -15,11 +15,10 @@ class DocumentModelType extends AbstractType
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getParent()
     {
         return 'document';
     }
-
 }
